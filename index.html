@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Selamat Turu</title>
+</head>
+<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+		display: border-box;
+	}
+	.box{
+		width: 100px;
+		height: 100px;
+		border:5px solid #FFC107;
+		text-align: center;
+		line-height: 100px;
+		font-family: sans-serif;
+		margin: 50px auto;
+		transition: .3s width,
+					.3s height .3s,
+					.3s margin-top .3s,
+					1s background-color,
+					1.3s color;
+	}
+	.text{
+		color: white;
+		font-family: sans-serif;
+		transition: 2s color;
+	}
+
+	.size{
+		border-radius: 20px;
+		height: 300px;
+		width: 200px;
+		margin-top:75px;
+		line-height: 100px;
+	}
+
+	.background{
+		background: #e91e63;
+		color: white;
+	}
+	.mimpi,.tidur{
+		transition: 2s;
+		display: none;
+		color: #e91e63;
+	}
+
+</style>
+<body>
+	<div class="box">
+		<b class="isi">Klik Saya</b>
+		<b class="tidur">Selamat Tidur</b>
+		<b class="mimpi">Mimpi Indah :v</b>
+	</div>
+</body>
+
+<script type="text/javascript">
+	const box = document.querySelector('.box');
+
+		
+
+	box.addEventListener('click',function(){
+		
+		let satu = 'size';
+
+		let dua = 'background';
+
+		if(this.classList.contains('satu')){
+
+			[satu,dua] = [dua,satu];
+
+		}
+
+		this.classList.toggle(satu);
+
+		setTimeout(() => {
+			this.classList.toggle(dua);
+
+			if (this.querySelector('.isi').innerText == 'Klik Saya') {
+
+				this.querySelector('.isi').innerText = "Rina Nur Latifah";
+
+				setTimeout( () =>{
+
+					// let text = document.createElement("p");
+
+					// text.innerText = "Selamat Tidur";
+					// text.setAttribute("class",'text');
+	    // 			this.appendChild(text);
+	    			this.querySelector('.mimpi').style.display = 'block';
+	    			this.querySelector('.tidur').style.display = 'block';
+	    			this.querySelector('.mimpi').style.color = '#e6e6e6';
+	    			this.querySelector('.tidur').style.color = '#e6e6e6';
+
+				},600)
+
+			}else{
+	    			this.querySelector('.mimpi').style.display = 'none';
+	    			this.querySelector('.tidur').style.display = 'none';
+
+				this.querySelector('.isi').innerText = "Klik Saya";
+			}
+
+		},600);
+	})
+</script>
+</html>
